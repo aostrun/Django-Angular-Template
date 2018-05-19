@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'django_template',
-    'custom_user'
+    'custom_user',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -116,6 +118,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'custom_user.User'
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Internationalization
