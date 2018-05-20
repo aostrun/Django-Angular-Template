@@ -28,6 +28,7 @@ Terminal:
 npm install -g @angular/cli
 cd Django-Angular-Template/angular
 npm install
+npm install typed.js
 
 
 ```

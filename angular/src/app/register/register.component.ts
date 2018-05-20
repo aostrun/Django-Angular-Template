@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService, UserService } from '../_services';
@@ -19,10 +19,14 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
+            first_name: ['', Validators.required],
+            last_name: ['', Validators.required],
             username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            email: ['', [Validators.required, Validators.email]],
+            password1: ['', [Validators.required, Validators.minLength(8)]],
+            password2: ['', [Validators.required, Validators.minLength(8)]]
+        },{
+            validator: PasswordValidation.MatchPassword //confirm password same as password
         });
     }
 
@@ -49,5 +53,18 @@ export class RegisterComponent implements OnInit {
                     this.alertService.error(error);
                     this.loading = false;
                 });
+    }
+}
+
+export class PasswordValidation {
+
+    static MatchPassword(AC: AbstractControl) {
+       let password = AC.get('password1').value; // to get value in input tag
+       let confirmPassword = AC.get('password2').value; // to get value in input tag
+        if(password != confirmPassword) {
+            AC.get('password2').setErrors( {MatchPassword: true} )
+        } else {
+            return null
+        }
     }
 }

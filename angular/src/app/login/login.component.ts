@@ -5,6 +5,8 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../_services';
 
+import * as Typed from "typed.js"
+
 @Component({templateUrl: 'login.component.html'})
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
@@ -20,6 +22,14 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService) {}
 
     ngOnInit() {
+        var options = {
+            strings: ["Please provide login information "],
+            typeSpeed: 40
+          }
+          
+          var typed = new Typed("#login_text", options);
+
+
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]

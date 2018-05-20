@@ -3,6 +3,7 @@ import { first } from 'rxjs/operators';
 
 import { User } from '../_models';
 import { UserService } from '../_services';
+import * as Typed from "typed.js";
 
 @Component({templateUrl: 'home.component.html'})
 export class HomeComponent implements OnInit {
@@ -14,6 +15,13 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
+        var options = {
+            strings: ["Dobrodošao, upali na <a href='http://onlineradiobox.com/hr/extra936/'>ExtraFM </a> :)"],
+            typeSpeed: 40
+          }
+          
+        var typed = new Typed("#home_text", options);
+
         this.loadAllUsers();
     }
 
