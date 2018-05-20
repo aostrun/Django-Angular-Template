@@ -21,6 +21,8 @@ export class AlertComponent implements OnInit, OnDestroy {
             this.message = message; 
             if (this.message != undefined){
                 this.makeMessage(this.message.text);
+            }else{
+                this.makeMessage("");
             }
         });
     }

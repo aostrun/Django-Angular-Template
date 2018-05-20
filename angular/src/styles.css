@@ -33,10 +33,12 @@
 
 .btn-primary:hover{
     background-color: rgb(255, 0, 55) !important;
+    border: 0;
 }
 
 .btn-link, .btn-link:active, .btn-link:visited {
     color: rgb(170, 3, 39) !important;
+    border: 0;
 }
  
 .form-control:focus {
@@ -45,5 +47,5 @@
   }
 
 .form-control{
-    width: 400px;
+    width: 600px;
 }
