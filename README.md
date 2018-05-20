@@ -3,6 +3,7 @@
 ## Django requirements
 
 Install [PyCharm](https://www.jetbrains.com/pycharm/download/)
+
 Install [Postman](https://www.getpostman.com/apps) for testing API endpoints
 ```
 Python 3.6.x
