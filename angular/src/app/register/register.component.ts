@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { first } from 'rxjs/operators';
 
 import { AlertService, UserService } from '../_services';
+import * as Typed from "typed.js"
 
 @Component({templateUrl: 'register.component.html'})
 export class RegisterComponent implements OnInit {
@@ -18,6 +19,14 @@ export class RegisterComponent implements OnInit {
         private alertService: AlertService) { }
 
     ngOnInit() {
+
+        var options = {
+            strings: ["Join us"],
+            typeSpeed: 40
+          }
+          
+          var typed = new Typed("#register_text", options);
+
         this.registerForm = this.formBuilder.group({
             first_name: ['', Validators.required],
             last_name: ['', Validators.required],

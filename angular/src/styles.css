@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+#particles-js canvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #110102;
+}
+
+.vertical-center {
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+        color: white;
+
+        /*this to solve "the content will not be cut when the window is smaller than the content": */
+        overflow:auto; 
+        display: table;
+  }
+
+.jumbotron{
+    background: rgba(255,0,0,0)    
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: rgb(170, 3, 39) !important;
+    border: 0;
+}
+
+.btn-primary:hover{
+    background-color: rgb(255, 0, 55) !important;
+}
+
+.btn-link, .btn-link:active, .btn-link:visited {
+    color: rgb(170, 3, 39) !important;
+}
+ 
+.form-control:focus {
+    border-color:  rgb(170, 3, 39);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  }
+
+.form-control{
+    width: 400px;
+}

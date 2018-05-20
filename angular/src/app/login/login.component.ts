@@ -7,6 +7,8 @@ import { AlertService, AuthenticationService } from '../_services';
 
 import * as Typed from "typed.js"
 
+
+
 @Component({templateUrl: 'login.component.html'})
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
@@ -22,8 +24,10 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService) {}
 
     ngOnInit() {
+
+
         var options = {
-            strings: ["Please provide login information "],
+            strings: ["Identify yourself"],
             typeSpeed: 40
           }
           
@@ -61,7 +65,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.alertService.error("Please check your username/password");
                     this.loading = false;
                 });
     }
