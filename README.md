@@ -14,6 +14,9 @@ pip install django-filter
 pip install django-rest-auth
 pip install django-cors-headers
 pip install django-allauth
+
+Start Django Server with
+python manage.py runserver
 ```
 
 ## Angular requirements
