@@ -1,9 +1,9 @@
 # Django-Angular-Template
 
 ## Django requirements
-```
-Install [PyCharm](https://www.jetbrains.com/pycharm/download/)
 
+Install [PyCharm](https://www.jetbrains.com/pycharm/download/)
+```
 Python 3.6.x
 python --version returns Python 3.6.x
 
