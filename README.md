@@ -2,7 +2,10 @@
 
 ## Django requirements
 ```
-Install PyCharm
+Install [PyCharm](https://www.jetbrains.com/pycharm/download/)
+
+Python 3.6.x
+python --version returns Python 3.6.x
 
 Terminal:
 pip install djangorestframework
