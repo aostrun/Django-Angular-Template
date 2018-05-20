@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from django.views.generic import TemplateView
 from custom_user.auth import TestAuthView
 from rest_auth.views import LoginView, LogoutView
+from rest_auth.registration.views import RegisterView, VerifyEmailView
 
 
 urlpatterns = [
@@ -24,4 +27,13 @@ urlpatterns = [
     path('test_auth/', TestAuthView.as_view(), name='test_auth', ),
     path('rest-auth/logout/', LogoutView.as_view(), name='rest_logout', ),
     path('rest-auth/login/', LoginView.as_view(), name='rest_login', ),
+    path('rest-auth/register/', RegisterView.as_view(), name='rest_register'),
+]
+
+urlpatterns += [
+
+    url(r'^verify-email', VerifyEmailView.as_view(), name='verify_email'),
+    url(r'^account-confirm-email/(?P<key>[-:\w]+)/$', TemplateView.as_view(),
+            name='account_confirm_email'),
+
 ]
