@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     loading = false;
     submitted = false;
     returnUrl: string;
-
+    typed: any;
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -26,12 +26,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
 
 
-        var options = {
-            strings: ["Identify yourself"],
-            typeSpeed: 40
-          }
-          
-          var typed = new Typed("#login_text", options);
+        this.makeMessage("Identify yourself");
 
 
         this.loginForm = this.formBuilder.group({
@@ -69,4 +64,25 @@ export class LoginComponent implements OnInit {
                     this.loading = false;
                 });
     }
+
+    makeMessage(newTexts: String){
+          
+        const dataType = newTexts;   // 
+
+        if (dataType === undefined) {
+          return false;
+        }
+        const strings = dataType.split(',');
+
+        if(this.typed && this.typed.constructor === Typed) {
+            this.typed.destroy();
+        }
+
+        this.typed = new Typed("#login_text", {
+          strings: strings,
+          typeSpeed: 40,
+          showCursor: false
+        });
+    }
+
 }

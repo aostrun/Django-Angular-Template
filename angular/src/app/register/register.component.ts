@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
+    typed: any;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -20,12 +21,7 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
 
-        var options = {
-            strings: ["Join us"],
-            typeSpeed: 40
-          }
-          
-          var typed = new Typed("#register_text", options);
+        this.makeMessage("Join us");
 
         this.registerForm = this.formBuilder.group({
             first_name: ['', Validators.required],
@@ -62,6 +58,26 @@ export class RegisterComponent implements OnInit {
                     this.alertService.error(error);
                     this.loading = false;
                 });
+    }
+
+    makeMessage(newTexts: String){
+          
+        const dataType = newTexts;   // 
+
+        if (dataType === undefined) {
+          return false;
+        }
+        const strings = dataType.split(',');
+
+        if(this.typed && this.typed.constructor === Typed) {
+            this.typed.destroy();
+        }
+
+        this.typed = new Typed("#register_text", {
+          strings: strings,
+          typeSpeed: 40,
+          showCursor: false
+        });
     }
 }
 
