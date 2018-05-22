@@ -1,4 +1,6 @@
-﻿<h1><span id="home_text"></span></h1>
+﻿
+<div class="home">
+    <h1><span id="home_text"></span></h1>
 <!--
 <h3>All registered users:</h3>
 <ul>
@@ -8,4 +10,6 @@
     </li>
 </ul>
 -->
-<p><a [routerLink]="['/login']" class="btn btn-link">Logout</a></p>
+<p><a [routerLink]="['/login']" (click)="logout()" class="btn btn-link">Logout</a></p>
+
+</div>

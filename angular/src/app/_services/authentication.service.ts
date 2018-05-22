@@ -2,7 +2,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { apiUrl } from '../_models';
+import { apiUrl, User } from '../_models';
 
 @Injectable()
 export class AuthenticationService {
@@ -22,7 +22,16 @@ export class AuthenticationService {
     }
 
     logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        var user = JSON.parse(localStorage.getItem('currentUser'));
+        if (user && user.key){
+             // remove user from local storage to log user out
+                return this.http.post<any>(apiUrl+'/rest-auth/logout/', { key : user.key})
+                .pipe(map(a => {
+                    localStorage.removeItem('currentUser');
+                    
+                }));
+        }
+       
+        
     }
 }

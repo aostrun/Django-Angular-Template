@@ -2,15 +2,19 @@
 import { first } from 'rxjs/operators';
 
 import { User } from '../_models';
-import { UserService } from '../_services';
+import { UserService, AuthenticationService } from '../_services';
+// import fade in animation
 import * as Typed from "typed.js";
 
-@Component({templateUrl: 'home.component.html'})
+@Component({templateUrl: 'home.component.html',
+styleUrls: ['home.component.css']
+
+})
 export class HomeComponent implements OnInit {
     currentUser: User;
     users: User[] = [];
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService,private authenticationService: AuthenticationService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -35,5 +39,11 @@ export class HomeComponent implements OnInit {
         this.userService.getAll().pipe(first()).subscribe(users => { 
             this.users = users; 
         });
+    }
+
+    logout(){
+        this.authenticationService.logout().pipe(first()).subscribe(() => {
+            console.log("logged out");
+        })
     }
 }

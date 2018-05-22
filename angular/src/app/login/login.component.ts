@@ -2,14 +2,17 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-
+import { fadeAnimation} from '../_animations/fade-in.animation';
 import { AlertService, AuthenticationService } from '../_services';
 
 import * as Typed from "typed.js"
 
 
 
-@Component({templateUrl: 'login.component.html'})
+@Component({
+templateUrl: 'login.component.html'
+})
+
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
