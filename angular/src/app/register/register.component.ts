@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
 
         this.typed = new Typed("#register_text", {
           strings: strings,
-          typeSpeed: 40,
+          typeSpeed: 70,
           showCursor: false
         });
     }

@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit {
 
         this.typed = new Typed("#login_text", {
           strings: strings,
-          typeSpeed: 40,
+          typeSpeed: 70,
           showCursor: false
         });
     }
